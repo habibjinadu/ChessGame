@@ -42,7 +42,7 @@ class Piece
     if (this.type == "pawn")
     {
       drawPawnPattern(indexX, indexY);
-    }else if (this.type == "queen")
+    } else if (this.type == "queen")
     {
       drawQueenPattern(indexX, indexY);
     }
@@ -76,10 +76,18 @@ class Piece
       board.spotColor[indexX][indexY + 1] = color(115, 252, 3);
     }
   }
-  
+
   void drawQueenPattern(int indexX, int indexY)
   {
-  
+
+    for (int i = 0; i < 8; i++) {
+      for (int j = 0; j < 8; j++) {
+        if ( i == indexY || j == indexX || indexY - i == indexX - j || indexY-i == j - indexX) {
+          if (!(i == indexY && j == indexX)) {
+            board.spotColor[j][i] = color(115, 252, 3);
+          }
+        }
+      }
+    }
   }
-  
 }
