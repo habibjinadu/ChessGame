@@ -1,7 +1,6 @@
 class Chessboard {
   Piece[][] pieces;
-  
-  color [][] spotColor;
+  color [][] spotColor = new color[8][8];
   Chessboard() {
     pieces = new Piece[8][8];
     //creates all pieces in the formation of a starting chess board
@@ -28,32 +27,42 @@ class Chessboard {
     for (int i = 0; i < 8; i++) {
       pieces[i][6] = new Piece("pawn", "white", whitePawn);
     }
-    
+
+    //setting up alternating color pattern
+    instantiateColors();
+
   }
   void drawBoard() {
-    int counter = 0; //only used for alternating square color pattern
     int yInd = 0;
     //loops through the board, draws each square, and then draws the pieces on each square
     for (int i = 100; i <= 625; i+= 75) {
       //offset color pattern each new line
-      counter++;
       int xInd = 0;
       for (int j = 100; j <= 625; j+=75) {
         //draw square
-        if (counter%2 == 1) {
-          fill(128, 81, 34);
-        } else {
-          fill(219, 183, 147);
-        }
+        fill(spotColor[xInd][yInd]);
         square(j, i, 75);
         //draw piece
         if (pieces[xInd][yInd] != null) {
           pieces[xInd][yInd].show(j, i);
         }
-        counter++;
         xInd++;
       }
       yInd++;
+    }
+  }
+  void instantiateColors() {
+    int counter = 0;
+    for (int i = 0; i < 8; i++) {
+      counter++;
+      for (int j = 0; j < 8; j++) {
+        if (counter %2 == 0) {
+          spotColor[i][j] = color(128, 81, 34);
+        } else {
+          spotColor[i][j] = color(219, 183, 147);
+        }
+        counter++;
+      }
     }
   }
 }
