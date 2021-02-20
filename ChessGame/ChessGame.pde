@@ -1,5 +1,7 @@
 class Chessboard {
   Piece[][] pieces;
+  
+  color [][] spotColor;
   Chessboard() {
     pieces = new Piece[8][8];
     //creates all pieces in the formation of a starting chess board
@@ -26,6 +28,7 @@ class Chessboard {
     for (int i = 0; i < 8; i++) {
       pieces[i][6] = new Piece("pawn", "white", whitePawn);
     }
+    
   }
   void drawBoard() {
     int counter = 0; //only used for alternating square color pattern
@@ -53,9 +56,6 @@ class Chessboard {
       yInd++;
     }
   }
-  
-  
-
 }
 
 Chessboard board;
@@ -91,13 +91,12 @@ void setup() {
   whiteKing = loadImage("/assets/pieces/white_king.png");
   whitePawn = loadImage("/assets/pieces/white_pawn.png");
   board = new Chessboard();
-  
 }
 
 void draw() {
   background(50);
   board.drawBoard();
-  
+
   //board.pieces[][].method()
 }
 
@@ -107,36 +106,35 @@ void mouseClicked()
   int indexY;
   if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 && boardState.equals("MOVING") == false)
   {
-   
-   indexX = round((mouseX-100)/75); // find the X index that was clicked
-   indexY = round((mouseY-100)/75); // find the Y index that was clicked
-   print(indexY);
-   print(indexX);
-   board.pieces[indexX][indexY].toBeMoved = true;
-   //pieceToBeMoved = board.pieces[indexX][indexY];
-   boardState = "MOVING";      // set the board state to MOVING
-  } 
-  else if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 && boardState.equals("MOVING") == true)
+
+    indexX = round((mouseX-100)/75); // find the X index that was clicked
+    indexY = round((mouseY-100)/75); // find the Y index that was clicked
+    print(indexY);
+    print(indexX);
+    board.pieces[indexX][indexY].toBeMoved = true;
+    //pieceToBeMoved = board.pieces[indexX][indexY];
+    boardState = "MOVING";      // set the board state to MOVING
+  } else if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 && boardState.equals("MOVING") == true)
   { 
-   indexX = round((mouseX-100)/75); // find the X index that was clicked
-   indexY = round((mouseY-100)/75); // find the Y index that was clicked
-   for (int row = 0; row < 8 ; row++)
-   {
-     for (int column = 0; column < 8; column++)
-     {
-       if (board.pieces[row][column] != null)
-       {
-         if (board.pieces[row][column].toBeMoved == true)
-         {
-           board.pieces[indexX][indexY] = board.pieces[row][column];
-           board.pieces[indexX][indexY].toBeMoved = false;
-           board.pieces[row][column] = null;
-         }
-           
-       }
-     }
-   }
-   boardState = "IDLE";      // set the board state to MOVING
+    indexX = round((mouseX-100)/75); // find the X index that was clicked
+    indexY = round((mouseY-100)/75); // find the Y index that was clicked
+    for (int row = 0; row < 8; row++)
+    {
+      for (int column = 0; column < 8; column++)
+      {
+        if (board.pieces[row][column] != null)
+        {
+          if (board.pieces[row][column].toBeMoved == true)
+          {
+            if (board.pieces[indexX][indexY] == null || board.pieces[indexX][indexY].col != board.pieces[row][column].col) {
+              board.pieces[indexX][indexY] = board.pieces[row][column];
+              board.pieces[indexX][indexY].toBeMoved = false;
+              board.pieces[row][column] = null;
+            }
+          }
+        }
+      }
+    }
+    boardState = "IDLE";      // set the board state to MOVING
   }
-  
 }

@@ -37,5 +37,7 @@ class Piece
     return this.col;
   }
   
-  
+  void drawPattern()
+  {
+  }
 }
