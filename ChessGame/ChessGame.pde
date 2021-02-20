@@ -54,6 +54,7 @@ class Chessboard {
     }
   }
   
+  
 
 }
 
@@ -72,6 +73,7 @@ PImage whiteQueen;
 PImage whiteKing;
 PImage whitePawn;
 
+String boardState = "IDLE";
 void setup() {
   size(800, 800);
   blackRook = loadImage("/assets/pieces/black_rook.png");
@@ -88,10 +90,37 @@ void setup() {
   whiteKing = loadImage("/assets/pieces/white_king.png");
   whitePawn = loadImage("/assets/pieces/white_pawn.png");
   board = new Chessboard();
+  
 }
 
 void draw() {
   background(50);
   board.drawBoard();
+  
   //board.pieces[][].method()
+}
+
+void mouseClicked()
+{
+  int indexX;
+  int indexY;
+  //print("mouse clicked");
+  if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 )//&& boardState.equals("MOVING") == false)
+  {
+   
+   indexX = round((mouseX-100)/75); // find the X index that was clicked
+   indexY = round((mouseY-100)/75); // find the Y index that was clicked
+   print(indexY);
+   print(indexX);
+   //board.pieces[indexX][indexY].toBeMoved = true;
+   boardState = "MOVING";      // set the board state to MOVING
+  } 
+  //else if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 && boardState.equals("MOVING") == true)
+  //{
+  // indexX = round(mouseX/75) - 1; // find the X index that was clicked
+  // indexY = round(mouseY/75) - 1; // find the Y index that was clicked
+  // board.pieces[indexX][indexY] = new Piece("pawn", "white", whitePawn);
+  // boardState = "IDLE";      // set the board state to MOVING
+  //}
+  
 }

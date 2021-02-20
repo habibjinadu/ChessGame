@@ -5,7 +5,7 @@ class Piece
   //int indexY;
   PImage icon;
   String col;    // distinguishes if it is a black or white piece 
-  
+  boolean toBeMoved;
   
   
   Piece(String type, String col, PImage icon)
