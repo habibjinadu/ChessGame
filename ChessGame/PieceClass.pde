@@ -22,5 +22,8 @@ class Piece
     image(icon, xPosition, yPosition);
   }
   
-  
+  void movePiece()
+  {
+    
+  }
 }
