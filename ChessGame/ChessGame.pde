@@ -122,7 +122,7 @@ void mouseClicked()
     print(indexX);
     if(board.pieces[indexX][indexY] == null) return;
     board.pieces[indexX][indexY].toBeMoved = true;
-    //pieceToBeMoved = board.pieces[indexX][indexY];
+    board.pieces[indexX][indexY].drawPattern(indexX, indexY);
     boardState = "MOVING";      // set the board state to MOVING
   } else if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 && boardState.equals("MOVING") == true)
   { 
@@ -140,6 +140,7 @@ void mouseClicked()
               board.pieces[indexX][indexY] = board.pieces[row][column];
               board.pieces[indexX][indexY].toBeMoved = false;
               board.pieces[row][column] = null;
+              board.instantiateColors();
             }
           }
         }

@@ -37,7 +37,31 @@ class Piece
     return this.col;
   }
   
-  void drawPattern()
+  void drawPattern(int indexX, int indexY)
   {
+    if (this.type == "pawn")
+    {
+      drawPawnPattern(indexX, indexY);
+    }
+    
+  }
+  
+  void drawPawnPattern(int indexX, int indexY)
+  
+  {
+    if (indexX > 0 && indexX < 8 && indexY > 0 && indexY < 8)
+    {
+      board.spotColor[indexX - 1][indexY - 1] = color(115, 252, 3);
+      board.spotColor[indexX][indexY - 1] = color(115, 252, 3);
+      board.spotColor[indexX + 1][indexY - 1] = color(115, 252, 3);
+      board.spotColor[indexX - 1][indexY] = color(115, 252, 3);
+      board.spotColor[indexX + 1][indexY] = color(115, 252, 3);
+      board.spotColor[indexX - 1][indexY + 1] = color(115, 252, 3);
+      board.spotColor[indexX][indexY + 1] = color(115, 252, 3);
+      board.spotColor[indexX + 1][indexY + 1] = color(115, 252, 3);
+      
+    }
+    
+    
   }
 }
