@@ -10,10 +10,10 @@ class Chessboard {
     pieces[0][5] = new Piece("bishop", "black", blackBishop);
     pieces[0][6] = new Piece("knight", "black", blackKnight);
     pieces[0][7] = new Piece("rook", "black", blackRook);
-    for(int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; i++) {
       pieces[1][i] = new Piece("pawn", "black", blackPawn);
     }
-    
+
     pieces[7][0] = new Piece("rook", "white", whiteRook);
     pieces[7][1] = new Piece("knight", "white", whiteKnight);
     pieces[7][2] = new Piece("bishop", "white", whiteBishop);
@@ -22,7 +22,7 @@ class Chessboard {
     pieces[7][5] = new Piece("bishop", "white", whiteBishop);
     pieces[7][6] = new Piece("knight", "white", whiteKnight);
     pieces[7][7] = new Piece("rook", "white", whiteRook);
-    for(int i = 0; i < 8; i++) {
+    for (int i = 0; i < 8; i++) {
       pieces[6][i] = new Piece("pawn", "white", whitePawn);
     }
   }
@@ -46,22 +46,35 @@ class Chessboard {
 }
 
 Chessboard board = new Chessboard();
-PImage blackRook = loadImage("black_rook.png");
-PImage blackKnight = loadImage("black_knight.png");
-PImage blackBishop = loadImage("black_bishop.png");
-PImage blackQueen = loadImage("black_queen.png");
-PImage blackKing = loadImage("black_king.png");
-PImage blackPawn = loadImage("black_pawn.png");
+PImage blackRook;
+PImage blackKnight;
+PImage blackBishop;
+PImage blackQueen;
+PImage blackKing;
+PImage blackPawn;
 
-PImage whiteRook = loadImage("white_rook.png");
-PImage whiteKnight = loadImage("white_knight.png");
-PImage whiteBishop = loadImage("white_bishop.png");
-PImage whiteQueen = loadImage("white_queen.png");
-PImage whiteKing = loadImage("white_king.png");
-PImage whitePawn = loadImage("white_pawn.png");
+PImage whiteRook;
+PImage whiteKnight;
+PImage whiteBishop;
+PImage whiteQueen;
+PImage whiteKing;
+PImage whitePawn;
 
 void setup() {
   size(800, 800);
+  blackRook = loadImage("black_rook.png");
+  blackKnight = loadImage("black_knight.png");
+  blackBishop = loadImage("black_bishop.png");
+  blackQueen = loadImage("black_queen.png");
+  blackKing = loadImage("black_king.png");
+  blackPawn = loadImage("black_pawn.png");
+
+  whiteRook = loadImage("white_rook.png");
+  whiteKnight = loadImage("white_knight.png");
+  whiteBishop = loadImage("white_bishop.png");
+  whiteQueen = loadImage("white_queen.png");
+  whiteKing = loadImage("white_king.png");
+  whitePawn = loadImage("white_pawn.png");
 }
 
 void draw() {
