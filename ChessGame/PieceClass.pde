@@ -27,12 +27,15 @@ class Piece
   //  image(icon, xPosition, yPosition);
   //}
   
-  void changePosition()
+  String getType()
   {
-    
+    return this.type;  
   }
-  void moveRook() // empty move rook function
+  
+  String getCol()
   {
-    
+    return this.col;
   }
+  
+  
 }
