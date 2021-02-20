@@ -74,6 +74,7 @@ PImage whiteKing;
 PImage whitePawn;
 
 String boardState = "IDLE";
+Piece pieceToBeMoved;
 void setup() {
   size(800, 800);
   blackRook = loadImage("/assets/pieces/black_rook.png");
@@ -104,23 +105,38 @@ void mouseClicked()
 {
   int indexX;
   int indexY;
-  //print("mouse clicked");
-  if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 )//&& boardState.equals("MOVING") == false)
+  if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 && boardState.equals("MOVING") == false)
   {
    
    indexX = round((mouseX-100)/75); // find the X index that was clicked
    indexY = round((mouseY-100)/75); // find the Y index that was clicked
    print(indexY);
    print(indexX);
-   //board.pieces[indexX][indexY].toBeMoved = true;
+   board.pieces[indexX][indexY].toBeMoved = true;
+   //pieceToBeMoved = board.pieces[indexX][indexY];
    boardState = "MOVING";      // set the board state to MOVING
   } 
-  //else if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 && boardState.equals("MOVING") == true)
-  //{
-  // indexX = round(mouseX/75) - 1; // find the X index that was clicked
-  // indexY = round(mouseY/75) - 1; // find the Y index that was clicked
-  // board.pieces[indexX][indexY] = new Piece("pawn", "white", whitePawn);
-  // boardState = "IDLE";      // set the board state to MOVING
-  //}
+  else if (mouseX < 900 && mouseX > 100 && mouseY < 900 && mouseY > 100 && boardState.equals("MOVING") == true)
+  { 
+   indexX = round((mouseX-100)/75); // find the X index that was clicked
+   indexY = round((mouseY-100)/75); // find the Y index that was clicked
+   for (int row = 0; row < 8 ; row++)
+   {
+     for (int column = 0; column < 8; column++)
+     {
+       if (board.pieces[row][column] != null)
+       {
+         if (board.pieces[row][column].toBeMoved == true)
+         {
+           board.pieces[indexX][indexY] = board.pieces[row][column];
+           board.pieces[indexX][indexY].toBeMoved = false;
+           board.pieces[row][column] = null;
+         }
+           
+       }
+     }
+   }
+   boardState = "IDLE";      // set the board state to MOVING
+  }
   
 }
