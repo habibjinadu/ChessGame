@@ -45,6 +45,9 @@ class Piece
     } else if (this.type == "queen")
     {
       drawQueenPattern(indexX, indexY);
+    } else if (this.type == "bishop")
+    {
+      drawBishopPattern(indexX, indexY);
     }
   }
 
@@ -88,5 +91,21 @@ class Piece
         }
       }
     }
+  }
+  
+  void drawBishopPattern(int indexX, int indexY) {
+    for (int i = 0; i < 8; i++) {
+      for (int j = 0; j < 8; j++) {
+        if (indexY - i == indexX - j || indexY-i == j - indexX) {
+          if (!(i == indexY && j == indexX)) {
+            board.spotColor[j][i] = color(115, 252, 3);
+          }
+        }
+      }
+    }
+  }
+  
+  void drawRookPattern(int indexX, int indexY) {
+    
   }
 }
