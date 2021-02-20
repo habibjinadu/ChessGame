@@ -119,6 +119,7 @@ void mouseClicked()
     indexY = round((mouseY-100)/75); // find the Y index that was clicked
     print(indexY);
     print(indexX);
+    if(board.pieces[indexX][indexY] == null) return;
     board.pieces[indexX][indexY].toBeMoved = true;
     //pieceToBeMoved = board.pieces[indexX][indexY];
     boardState = "MOVING";      // set the board state to MOVING
