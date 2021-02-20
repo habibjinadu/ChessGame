@@ -15,6 +15,8 @@ class Chessboard {
       }
     }
   }
+  
+  
 }
 
 Chessboard board = new Chessboard();
