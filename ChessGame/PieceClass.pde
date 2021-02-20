@@ -21,4 +21,4 @@ class Piece
   {
     image(icon, xPosition, yPosition);
   }
-  
+}
