@@ -1,7 +1,7 @@
-class Piece {
-  String type;  
-}
+//class Piece {
+//  String type;  
+//}
 
-/*class Knight extends Piece {
+///*class Knight extends Piece {
   
-}*/
+//}*/
