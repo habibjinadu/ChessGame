@@ -1,5 +1,10 @@
 class Chessboard {
-  Piece[][] pieces = new Piece[8][8];
+  Piece[][] pieces;
+  Chessboard() {
+    pieces = new Piece[8][8];
+    pieces[0][0] = new Piece("rook", "black", loadImage("/assets/pieces/black_rook.png"), 0, 0);
+    pieces[0][1] = new Piece("knight", "black", loadImage("/assets/pieces/black_knight.png"), 0, 1);
+  }
   void drawBoard() {
     int counter = 0;
     for (int i = 100; i <= 625; i+= 75) {
