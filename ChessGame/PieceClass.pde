@@ -59,6 +59,7 @@ class Piece
       board.spotColor[indexX - 1][indexY + 1] = color(115, 252, 3);
       board.spotColor[indexX][indexY + 1] = color(115, 252, 3);
       board.spotColor[indexX + 1][indexY + 1] = color(115, 252, 3);
+      board.spotColor[indexX + 1][indexY] = color(115, 252, 3);
       
     }
     
