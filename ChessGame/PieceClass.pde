@@ -42,7 +42,7 @@ class Piece
     if (this.type == "pawn")
     {
       drawPawnPattern(indexX, indexY);
-    }else if (this.type == "queen")
+    } else if (this.type == "queen")
     {
       drawQueenPattern(indexX, indexY);
     }
@@ -76,28 +76,17 @@ class Piece
       board.spotColor[indexX][indexY + 1] = color(115, 252, 3);
     }
   }
-  
+
   void drawQueenPattern(int indexX, int indexY)
   {
-    int rowOffsetDirection = 1;
-    int columnOffsetDirection = 1;
-    
-    for (int currentOffset = 1; currentOffset < 8; currentOffset++ )
-          {
-              // make a current row position which is the queen row position plus an offset
-              int currentRowPosition = indexY + rowOffsetDirection * currentOffset;
-              
-              // make a current column position which is the queen column position minus an offset
-              int currentColumnPosition = indexX + columnOffsetDirection * currentOffset ;
-  
-              // if the current position is still on the board
-              if (currentRowPosition > -1 && currentRowPosition < 8 
-              &&  currentColumnPosition > -1 && currentColumnPosition < 8)
-              {
-                  board.spotColor[currentRowPosition][currentColumnPosition] = color(115, 252, 3);
-              }
+    for (int i = 0; i < 8; i++) {
+      for (int j = 0; j < 8; j++) {
+        if ( i == indexY || j == indexX || indexY - i == indexX - j || indexY-i == j - indexX) {
+          if (!(i == indexY && j == indexX)) {
+            board.spotColor[j][i] = color(115, 252, 3);
           }
-  
+        }
+      }
+    }
   }
-  
 }
