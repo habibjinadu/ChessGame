@@ -46,6 +46,7 @@ class Piece
     {
       drawQueenPattern(indexX, indexY);
     }
+    
   }
 
   void drawPawnPattern(int indexX, int indexY)
@@ -88,6 +89,59 @@ class Piece
           }
         }
       }
+    }
+  }
+}
+
+void drawKnightPattern(int indexX, int indexY)
+{
+  if (indexX < 7)
+  {
+    if (indexY > 1)
+    {
+      board.spotColor[indexX + 1][indexY - 2 ] = color(115, 252, 3);
+    }
+    if (indexY < 6)
+    {
+      board.spotColor[indexX + 1][indexY + 2 ] = color(115, 252, 3);
+    }
+  }
+  
+  if (indexX > 0)
+  {
+    if (indexY < 6)
+    {
+      board.spotColor[indexX - 1][indexY + 2 ] = color(115, 252, 3);
+    }
+    
+    if (indexY > 1)
+    {
+      board.spotColor[indexX - 1][indexY - 2 ] = color(115, 252, 3);
+    }
+  
+  }
+  
+  if (indexY > 0)
+  {
+    if (indexX > 1)
+    {
+    board.spotColor[indexX - 2][indexY - 1 ] = color(115, 252, 3);
+    }
+    if (indexX < 6)
+    {
+    board.spotColor[indexX + 2][indexY - 1 ] = color(115, 252, 3);
+    }
+  }
+  
+  if (indexY < 7)
+  {
+    if (indexX > 1)
+    {
+      board.spotColor[indexX - 2][indexY + 1 ] = color(115, 252, 3);
+    }
+    if (indexX < 6)
+    {
+      board.spotColor[indexX + 2][indexY + 1 ] = color(115, 252, 3);
     }
   }
 }
