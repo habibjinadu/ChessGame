@@ -48,6 +48,9 @@ class Piece
     } else if (this.type == "bishop")
     {
       drawBishopPattern(indexX, indexY);
+    }else if (this.type == "knight")
+    {
+      drawKnightPattern(indexX, indexY);
     }
     
   }
