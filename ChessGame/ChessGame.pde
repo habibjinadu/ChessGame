@@ -118,8 +118,8 @@ void mouseClicked()
 
     indexX = round((mouseX-100)/75); // find the X index that was clicked
     indexY = round((mouseY-100)/75); // find the Y index that was clicked
-    print(indexY);
-    print(indexX);
+    //print(indexY);
+    //print(indexX);
     if(board.pieces[indexX][indexY] == null) return;
     board.pieces[indexX][indexY].toBeMoved = true;
     board.pieces[indexX][indexY].drawPattern(indexX, indexY);
