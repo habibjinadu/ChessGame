@@ -5,8 +5,11 @@ including diagonals. Additionally, after making 3 captures, a player can switch 
 yet).
 
 In order to run the chess game:
+
 -Download the repository as a .zip file
+
 -Extract the .zip file
+
 -Open and run ChessGame.pde in Processing, available at https://processing.org/
 
 Note that at this point, the program isn't fully finished and you can move any piece to any location.
