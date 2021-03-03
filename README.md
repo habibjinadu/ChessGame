@@ -14,5 +14,5 @@ In order to run the chess game:
 
 Note that at this point, the program isn't fully finished and you can move any piece to any location.
 
-![This is a alt text.](ChessGame/ChessGame/screenShots/chessBoard.png "Chess board showing possible knight locations")
+![This is a alt text.](https://github.com/habibjinadu/ChessGame/blob/main/ChessGame/screenShots/chessBoard.PNG "Chess board showing possible knight locations")
 
